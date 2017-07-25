@@ -1,0 +1,9 @@
+<div>
+  <p>Wir bieten {{trainings.length}} Schulungen an.</p>
+</div>
+<h2>Liste</h2>
+<ul>
+  <li *ngFor="let training of trainings" (click)="onTrainingClicked($event, training)">
+    {{training.name}}
+  </li>
+</ul>

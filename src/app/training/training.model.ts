@@ -1,10 +1,10 @@
-let nextId: number = 0;
+let nextId: number = 1;
 
 export class Training {
 
-  private readonly id: number;
-  private readonly name: string;
-  private readonly description: string;
+  readonly id: number;
+  readonly name: string;
+  readonly description: string;
 
   constructor(name: string, description?: string) {
 

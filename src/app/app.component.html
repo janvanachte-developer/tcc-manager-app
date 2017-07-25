@@ -1,20 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    tcc Manager App
-  </h1>
-  <img width="300" src="../assets/keyboard01">
-</div>
-<app-training-list></app-training-list>
-<div>
-  <p>Wir bieten {{trainings.length}} Schulungen an.</p>
-</div>
-<ul>
-  <li *ngFor="let training of trainings">
-    {{training.name}}
-  </li>
-</ul>
-<body>
-
-</body>
+<div style="text-align:center">tcc Manager App</div>
+<app-training-list [trainings]="trainings" (trainingSelected)="trainingSelected($event)"></app-training-list>
+<app-training-detail *ngIf="training" [training]="training"></app-training-detail>
 
