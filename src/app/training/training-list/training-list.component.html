@@ -4,7 +4,7 @@
 <h2>Liste</h2>
 <ul>
   <!--$event is optional -->
-  <li *ngFor="let training of trainings" (click)="onListItemClicked($event, training)">
+  <li *ngFor="let training of trainings" [class.trainingNotActive]="!training.active" [class.itemSelected]="training === itemSelected" (click)="onListItemClicked($event, training)">
     {{training.name}}
   </li>
 </ul>

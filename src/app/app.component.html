@@ -3,5 +3,5 @@
 <div style="text-align:center">{{title}}</div>
   </header>
     <app-training-list [trainings]="trainings" (trainingSelected)="onTrainingSelected($event)"></app-training-list>
-<app-training-detail *ngIf="trainingSelected" [training]="trainingSelected"></app-training-detail>
+    <app-training-detail *ngIf="trainingSelected" [training]="trainingSelected"></app-training-detail>
 </div>

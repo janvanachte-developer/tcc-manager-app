@@ -2,7 +2,8 @@
 <table>
   <tr *ngIf="training">
     <td>{{training.id}}</td>
-    <td>{{training.name}}</td>
+    <!-- 2 way data binding -->
+    <td><input [(ngModel)]="training.name"/></td>
     <td>{{training.description}}</td>
   </tr>
 </table>

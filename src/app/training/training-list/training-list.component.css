@@ -1,0 +1,8 @@
+.itemSelected {
+  font-weight: bold;
+}
+
+.trainingNotActive {
+  font-style: italic;
+  text-decoration: line-through;
+}
