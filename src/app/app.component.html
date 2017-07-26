@@ -1,4 +1,7 @@
-<div style="text-align:center">tcc Manager App</div>
-<app-training-list [trainings]="trainings" (trainingSelected)="trainingSelected($event)"></app-training-list>
-<app-training-detail *ngIf="training" [training]="training"></app-training-detail>
-
+<div>
+  <header >
+<div style="text-align:center">{{title}}</div>
+  </header>
+    <app-training-list [trainings]="trainings" (trainingSelected)="onTrainingSelected($event)"></app-training-list>
+<app-training-detail *ngIf="trainingSelected" [training]="trainingSelected"></app-training-detail>
+</div>

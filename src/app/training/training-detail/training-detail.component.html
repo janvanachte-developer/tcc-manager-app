@@ -1,4 +1,4 @@
-<h2>Detail</h2>
+<h2>{{training.name}}</h2>
 <table>
   <tr *ngIf="training">
     <td>{{training.id}}</td>
@@ -6,3 +6,4 @@
     <td>{{training.description}}</td>
   </tr>
 </table>
+<img [src]="training.imageUrl"/>

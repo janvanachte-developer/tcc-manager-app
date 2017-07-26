@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import {TrainingsModule} from "./trainings/trainings.module";
+// import {TrainingsModule} from "./trainings/trainings.module";
 import {TrainingModule} from "./training/training.module";
 
 @NgModule({
@@ -11,7 +11,7 @@ import {TrainingModule} from "./training/training.module";
   ],
   imports: [
     BrowserModule,
-    TrainingsModule,
+    // TrainingsModule,
     TrainingModule
   ],
   providers: [],

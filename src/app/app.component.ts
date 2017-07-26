@@ -8,26 +8,25 @@ import {TrainingListComponent} from "./trainings/training-list/training-list.com
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  title = 'TCC Manager App';
 
   trainings: Training[];
-  training: Training;
+  trainingSelected: Training;
 
   constructor() {
 
     this.trainings = [
-      new Training("Angular Introduction", "Angular for dummies"),
-      new Training("Angular Profesional", "Angular for HelloWorld developers"),
-      new Training("Angular Enterprise", "Angular for enterprise developers"),
-      new Training("Angular Guru", "Angular for Angular gurus"),
-      new Training("Angular Trainer", "Angular for Angular trainers")
+      new Training("Angular Introduction", "Angular for dummies","assets/images/keyboard01.jpeg"),
+      new Training("Angular Profesional", "Angular for HelloWorld developers","assets/images/keyboard02.jpeg"),
+      new Training("Angular Enterprise", "Angular for enterprise developers","assets/images/keyboard03.jpeg"),
+      new Training("Angular Guru", "Angular for Angular gurus","assets/images/keyboard04.jpeg"),
+      new Training("Angular Trainer", "Angular for Angular trainers","assets/images/keyboard05.jpeg")
     ]
   }
 
-  trainingSelected(training: Training) {
+  onTrainingSelected(trainingSelected: Training) {
 
-    console.log(`${training.name} selected`);
-    this.training = training;
+    this.trainingSelected = trainingSelected;
   }
 
 }
