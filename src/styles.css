@@ -6,10 +6,4 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
   vertical-align: baseline;
   background: transparent;
 }
-body {
-  display: block;
-  background-image: url("assets/images/background.jpg") ;
-  background-size: 1000px 600px;
-  background-repeat: no-repeat;
-}
 

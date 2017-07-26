@@ -1,9 +1,10 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
 
-import { AppComponent } from './app.component';
-// import {TrainingsModule} from "./trainings/trainings.module";
-import {TrainingModule} from "./training/training.module";
+import {AppComponent} from './app.component';
+import {ItemModule} from "./training/training.module";
+import {RouterModule} from "@angular/router";
+import {routes} from "./app.routes";
 
 @NgModule({
   declarations: [
@@ -11,10 +12,11 @@ import {TrainingModule} from "./training/training.module";
   ],
   imports: [
     BrowserModule,
-    // TrainingsModule,
-    TrainingModule
+    ItemModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

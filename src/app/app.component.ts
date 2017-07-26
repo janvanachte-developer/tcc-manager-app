@@ -1,32 +1,42 @@
-import {Component} from '@angular/core';
-import {Training} from "./training/training.model";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Item} from "./training/item.model";
+import {ItemService} from "./training/training.service";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit, OnDestroy {
+
   title = 'TCC Manager App';
-  quote: 'Please select item';
+  quote =  'Please select item';
+  dateFormat = "yyyy-MMM-dd";
 
-  trainings: Training[];
-  trainingSelected: Training;
+  items: Item[];
+  itemSelected: Item;
 
-  constructor() {
+  private itemService: ItemService;
+  private itemsSubscription: Subscription;
 
-    this.trainings = [
-      new Training("Angular Introduction", "Angular for dummies","assets/images/keyboard01.jpeg"),
-      new Training("Angular Profesional", "Angular for HelloWorld developers","assets/images/keyboard02.jpeg"),
-      new Training("Angular Enterprise", "Angular for enterprise developers","assets/images/keyboard03.jpeg"),
-      new Training("Angular Guru", "Angular for Angular gurus","assets/images/keyboard04.jpeg", false),
-      new Training("Angular Trainer", "Angular for Angular trainers","assets/images/keyboard05.jpeg")
-    ]
+  constructor( itemService: ItemService ) {
+
+    this.itemService = itemService;
   }
 
-  onTrainingSelected(trainingSelected: Training) {
+  ngOnInit(): void {
 
-    this.trainingSelected = trainingSelected;
+    const itemsObservable = this.itemService.getAll();
+    this.itemsSubscription = itemsObservable.subscribe(items => this.items = items);
   }
 
+  onItemSelected(itemSelected: Item) {
+
+    this.itemSelected = itemSelected;
+  }
+
+  ngOnDestroy(): void {
+    this.itemsSubscription.unsubscribe();
+  }
 }

@@ -1,19 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TrainingDetailComponent } from './training-detail/training-detail.component';
-import {TrainingListComponent} from "./training-list/training-list.component";
+import {ItemListComponent} from "./training-list/training-list.component";
 import {FormsModule} from "@angular/forms";
+import {ItemService} from "./training.service";
+import {TakePlaceSoon} from "./training-detail/takePlaceSoon";
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule
+      imports: [
+        CommonModule,
+        FormsModule
+      ],
+      declarations: [
+        TrainingDetailComponent,
+        ItemListComponent,
+        TakePlaceSoon
+      ],
+      providers: [
+        ItemService
   ],
-  declarations: [
-    TrainingDetailComponent,
-    TrainingListComponent],
   exports: [
     TrainingDetailComponent,
-    TrainingListComponent]
+    ItemListComponent]
 })
-export class TrainingModule { }
+export class ItemModule { }

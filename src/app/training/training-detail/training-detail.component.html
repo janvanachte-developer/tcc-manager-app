@@ -5,6 +5,7 @@
     <!-- 2 way data binding -->
     <td><input [(ngModel)]="training.name"/></td>
     <td>{{training.description}}</td>
+    <td>{{training.nextRun | date:dateFormat}}</td>
   </tr>
 </table>
 <img [src]="training.imageUrl"/>

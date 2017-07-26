@@ -1,7 +1,11 @@
-<div>
-  <header >
-<div style="text-align:center">{{title}}</div>
-  </header>
-    <app-training-list [trainings]="trainings" (trainingSelected)="onTrainingSelected($event)"></app-training-list>
-    <app-training-detail *ngIf="trainingSelected" [training]="trainingSelected"></app-training-detail>
+<div id="app-root">
+  <div class="MAIN">
+    <header>{{title}}</header>
+    <app-training-list (itemInFocus)="onItemSelected($event)"></app-training-list>
+    <footer>{{quote}}</footer>
+  </div>
+  <div class="SUB">
+    <!--<app-training-detail *ngIf="itemSelected" [training]="itemSelected"></app-training-detail>-->
+    <router-outlet></router-outlet>
+  </div>
 </div>

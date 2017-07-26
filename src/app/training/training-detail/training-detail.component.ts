@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Training} from "../training.model";
+import {Item} from "../item.model";
 
 @Component({
   selector: 'app-training-detail',
@@ -8,7 +8,8 @@ import {Training} from "../training.model";
 })
 export class TrainingDetailComponent implements OnInit {
 
-  @Input() training: Training;
+  @Input() training: Item;
+
 
   ngOnInit() {
   }

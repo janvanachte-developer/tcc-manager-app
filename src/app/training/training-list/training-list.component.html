@@ -1,10 +1,10 @@
 <div>
-  <p>Wir bieten {{trainings.length}} Schulungen an.</p>
+  <p>Wir bieten {{items.length}} Schulungen an.</p>
 </div>
 <h2>Liste</h2>
 <ul>
   <!--$event is optional -->
-  <li *ngFor="let training of trainings" [class.trainingNotActive]="!training.active" [class.itemSelected]="training === itemSelected" (click)="onListItemClicked($event, training)">
+  <li *ngFor="let training of items" [class.takePlaceSoon]="training.nextRun | takePlaceSoon:5" [class.trainingNotActive]="!training.active" [class.itemSelected]="training === itemSelected" (click)="onListItemClicked($event, training)">
     {{training.name}}
   </li>
 </ul>

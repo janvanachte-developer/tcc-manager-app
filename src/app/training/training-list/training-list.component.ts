@@ -1,25 +1,43 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Training} from "../../training/training.model";
+import {Component, EventEmitter, Input, OnDestroy, OnInit, Output} from '@angular/core';
+import {Item} from "../item.model";
+import {ItemService} from "../training.service";
+import {Subscription} from "rxjs/Subscription";
 
 @Component({
   selector: 'app-training-list',
   templateUrl: './training-list.component.html',
   styleUrls: ['./training-list.component.css']
 })
-export class TrainingListComponent implements OnInit {
+export class ItemListComponent implements OnInit, OnDestroy {
 
-  // @Input and @Output are fiels, so belong at the top of the class declaration
-  @Input() trainings: Training[];
-  @Output() public trainingSelected = new EventEmitter<Training>();
-  itemSelected: Training;
+  //@Input and @Output are fiels, so belong at the top of the class declaration
+  public items: Item[];
+  @Output() public itemInFocus = new EventEmitter<Item>();
+  itemSelected: Item;
 
-  ngOnInit() {
+  private itemService: ItemService;
+  private itemsSubscription: Subscription;
+
+  constructor( itemService: ItemService ) {
+
+    this.itemService = itemService;
   }
 
-  onListItemClicked($event: MouseEvent, training: Training) {
+  ngOnInit(): void {
+
+    const itemsObservable = this.itemService.getAll();
+    this.itemsSubscription = itemsObservable.subscribe(items => this.items = items);
+  }
+
+  ngOnDestroy(): void {
+    this.itemsSubscription.unsubscribe();
+  }
+
+
+  onListItemClicked($event: MouseEvent, training: Item) {
 
     console.log(`Clicked on ${training.name}`);
-    this.trainingSelected.emit(training);
+    this.itemInFocus.emit(training);
     this.itemSelected = training;
   }
 }
