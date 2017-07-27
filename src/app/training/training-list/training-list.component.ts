@@ -10,7 +10,7 @@ import {Subscription} from "rxjs/Subscription";
 })
 export class ItemListComponent implements OnInit, OnDestroy {
 
-  //@Input and @Output are fiels, so belong at the top of the class declaration
+  //@Input and @Output are fields, so belong at the top of the class declaration
   public items: Item[];
   @Output() public itemInFocus = new EventEmitter<Item>();
   itemSelected: Item;

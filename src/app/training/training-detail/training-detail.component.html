@@ -1,11 +1,11 @@
-<h2>{{training.name}}</h2>
+<h2>{{item.name}}</h2>
 <table>
-  <tr *ngIf="training">
-    <td>{{training.id}}</td>
+  <tr *ngIf="item">
+    <td>{{item.id}}</td>
     <!-- 2 way data binding -->
-    <td><input [(ngModel)]="training.name"/></td>
-    <td>{{training.description}}</td>
-    <td>{{training.nextRun | date:dateFormat}}</td>
+    <td><input [(ngModel)]="item.name"/></td>
+    <td>{{item.description}}</td>
+    <td>{{item.nextRun | date:dateFormat}}</td>
   </tr>
 </table>
-<img [src]="training.imageUrl"/>
+<img [src]="item.imageUrl"/>

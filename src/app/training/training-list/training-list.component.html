@@ -4,7 +4,7 @@
 <h2>Liste</h2>
 <ul>
   <!--$event is optional -->
-  <li *ngFor="let training of items" [class.takePlaceSoon]="training.nextRun | takePlaceSoon:5" [class.trainingNotActive]="!training.active" [class.itemSelected]="training === itemSelected" (click)="onListItemClicked($event, training)">
-    {{training.name}}
+  <li *ngFor="let item of items" [class.takePlaceSoon]="item.nextRun | takePlaceSoon:5" [class.trainingNotActive]="!item.active" [class.itemSelected]="item === itemSelected" (click)="onListItemClicked($event, item)">
+    <a [routerLink]="['/item', item.id]">{{item.name}}</a>
   </li>
 </ul>

@@ -5,22 +5,30 @@ import {ItemListComponent} from "./training-list/training-list.component";
 import {FormsModule} from "@angular/forms";
 import {ItemService} from "./training.service";
 import {TakePlaceSoon} from "./training-detail/takePlaceSoon";
+import { ItemDetailRouteComponent } from './item-detail-route/item-detail-route.component';
+import {RouterModule} from "@angular/router";
+import {ItemExistGuardService} from "./item-exist-guard.service";
 
 @NgModule({
       imports: [
         CommonModule,
-        FormsModule
+        FormsModule,
+        RouterModule
       ],
       declarations: [
         TrainingDetailComponent,
         ItemListComponent,
-        TakePlaceSoon
+        TakePlaceSoon,
+        ItemDetailRouteComponent
       ],
       providers: [
-        ItemService
+        ItemService,
+        ItemExistGuardService,
   ],
   exports: [
     TrainingDetailComponent,
-    ItemListComponent]
+    ItemDetailRouteComponent,
+    ItemListComponent
+  ]
 })
 export class ItemModule { }

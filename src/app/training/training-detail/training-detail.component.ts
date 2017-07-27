@@ -8,8 +8,7 @@ import {Item} from "../item.model";
 })
 export class TrainingDetailComponent implements OnInit {
 
-  @Input() training: Item;
-
+  @Input() item: Item;
 
   ngOnInit() {
   }
