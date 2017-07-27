@@ -1,11 +1,43 @@
 <h2>{{item.name}}</h2>
-<table>
-  <tr *ngIf="item">
-    <td>{{item.id}}</td>
-    <!-- 2 way data binding -->
-    <td><input [(ngModel)]="item.name"/></td>
-    <td>{{item.description}}</td>
-    <td>{{item.nextRun | date:dateFormat}}</td>
-  </tr>
-</table>
+<!-- Form with ngModel / import {FormsModule} from "@angular/forms"; -->
+<!--<table>-->
+  <!--<tr *ngIf="item">-->
+    <!--<td>{{item.id}}</td>-->
+    <!--&lt;!&ndash; 2 way data binding &ndash;&gt;-->
+     <!--<td><input [(ngModel)]="item.name"/></td>-->
+    <!--<td>{{item.description}}</td>-->
+    <!--<td>{{item.nextRun | date:dateFormat}}</td>-->
+  <!--</tr>-->
+<!--</table>-->
+<form [formGroup]="form" (ngSubmit)="onSubmit($event)">
+<div>
+  <label>Name:
+    <input type="text" formControlName="name"/>
+  </label>
+</div>
+  <div>
+    <label>Description:
+      <input type="text" formControlName="description"/>
+    </label>
+  </div>
+  <div>
+    <label>ImageURL:
+      <input type="text" formControlName="imageUrl"/>
+    </label>
+  </div>
+  <div>
+    <label>Active:
+    <input type="checkbox" formControlName="active"/>
+    </label>
+  </div>
+  <div>
+    <label>Next Run:
+    <input type="date" formControlName="nextRun"/>
+    </label>
+  </div>
+  <div>
+    <button type="submit">Save</button>
+    <button type="button" (click)="onCancel($event)">Cancel</button>
+  </div>
+</form>
 <img [src]="item.imageUrl"/>

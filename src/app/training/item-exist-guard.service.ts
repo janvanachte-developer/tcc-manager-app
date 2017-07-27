@@ -13,6 +13,9 @@ export class ItemExistGuardService implements CanActivate  {
     // + means parseInt
     const id = +route.params['id'];
 
+    console.log("GUARD")
+    console.log(id);
+
     const result = this.itemService.getById(id)
       .first()
       .map(() => true)
